@@ -1,0 +1,71 @@
+# Proje Kök Dizini: hava_araci_uretim/.gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+instance/
+*.db
+*.sqlite3
+
+# Sanal Ortamlar
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Django
+db.sqlite3
+db.sqlite3-journal
+media/ # Genellikle kullanıcı tarafından yüklenen dosyalar repo'ya eklenmez
+staticfiles_collected/ # collectstatic çıktısı, her dağıtımda yeniden oluşturulur
+*.log
+local_settings.py # Lokal ayarlar için (eğer kullanılıyorsa)
+
+# Coverage
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.pytest_cache/
+
+# Docker
+# Dockerfile, docker-compose.yml, .dockerignore dosyaları genellikle repo'da tutulur.
+# Ancak, build sırasında oluşan geçici Docker dosyaları veya context'leri ignore edilebilir.
+
+# Frontend (React/Vite/Node)
+frontend/node_modules/
+frontend/dist/ # Vite build çıktısı (Nginx imajına kopyalanacak, repo'ya değil)
+frontend/build/ # Create React App build çıktısı (eğer kullanılsaydı)
+frontend/.pnp.*
+frontend/.yarn/*
+frontend/coverage/
+frontend/.env # Frontend'e özel .env dosyası (API key'leri vb. içerebilir)
+frontend/.env.*.local
+frontend/.env.local
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/report.*/
+frontend/public/build/ # Laravel Mix gibi bazı araçların çıktıları için
+
+# Ortam Değişkenleri Dosyaları (Proje Kökü ve Alt Klasörler)
+.env
+.env.*
+!.env.example # .env.example dosyası genellikle repo'da tutulur
+
+# IDE ve OS dosyaları
+.idea/
+.vscode/
+*.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo

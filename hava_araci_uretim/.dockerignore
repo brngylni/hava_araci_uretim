@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.git/
+.gitignore
+.env # Backend'e özel .env (eğer varsa ve imaja girmemesi gerekiyorsa)
+venv/
+.venv/
