@@ -33,6 +33,8 @@ Projenin temel amacı, karmaşık bir üretim sürecini modelleyerek, aşağıda
 *   **Uçak Montajı:** Montaj Takımı tarafından, gerekli tüm parçaların (doğru tip, doğru model uyumu, stokta olma durumu kontrol edilerek) birleştirilip yeni bir uçağın monte edilmesi.
 *   **Monte Edilmiş Uçak Listesi:** Sistemdeki tüm monte edilmiş uçakların listelenmesi.
 *   **Eksik Parça Kontrolü:** Belirli bir uçak modeli için montajda gerekli olan temel parçaların envanterdeki stok durumunun kontrol edilmesi.
+        ![Parça Üretme](goruntuler/eksik_parca.png)
+
 
 ## 2. Teknoloji Stack'i ve Kütüphaneler
 
@@ -217,19 +219,24 @@ Proje ilk kez `migrate` edildiğinde, aşağıdaki data migration'lar çalışar
 ## 6. API Kullanımı ve Temel İş Akışları
 
 1.  **Giriş Yapma:**
+    ![Giriş](goruntuler/giris.png)
+
     *   Frontend'deki Login sayfasını kullanın veya `/api/v1/users/login/` endpoint'ine `username` ve `password` ile `POST` isteği gönderin.
     *   Yanıt olarak gelen `token`'ı sonraki yetkili istekler için saklayın.
 
-2.  **Personel (Kullanıcı) Kendi Takımını Atama/Değiştirme:**
-    *   Giriş yapmış kullanıcı, frontend'deki "Profilim" (veya benzeri) sayfasından `/api/v1/users/profiles/my_profile/` endpoint'ine `PATCH` isteği ile `team` (takım ID'si) göndererek kendi takımını güncelleyebilir.
+2.  **Personel (Kullanıcı) Takımını Atama/Değiştirme:**
+    ![Takım Değiştirme](goruntuler/takim_degis.png)
+    *   Giriş yapmış kök kullanıcı, frontend'deki "Kullanıcı Yönetimi" (veya benzeri) sayfasından `/api/v1/users/profiles/:id/` endpoint'ine `PATCH` isteği ile `team` (takım ID'si) göndererek kullanıcı takımını güncelleyebilir.
 
 3.  **Parça Üretme (Üretim Takımı Üyesi):**
+    ![Parça Üretme](goruntuler/parca_uret.png)
     *   Kullanıcı, sorumlu olduğu parça tipinden bir parça üretmek için frontend'deki "Yeni Parça Üret" formunu kullanır.
     *   Bu form, `/api/v1/envanter/parts/` endpoint'ine `POST` isteği gönderir.
     *   İstek body'si şunları içermelidir: `serial_number`, `part_type` (ID), `aircraft_model_compatibility` (ID).
     *   Backend, isteği yapan kullanıcının takımını ve parça tipini kontrol eder, başarılı olursa parçayı oluşturur (`status='STOKTA'`, `produced_by_team` set edilir).
 
 4.  **Uçak Monte Etme (Montaj Takımı Üyesi):**
+    ![Uçak Montaj](goruntuler/ucak_montaj.png)
     *   Kullanıcı, frontend'deki "Yeni Uçak Monte Et" formunu kullanır.
     *   Bu form, `/api/v1/montaj/assembled-aircrafts/` endpoint'ine `POST` isteği gönderir.
     *   İstek body'si şunları içermelidir: `tail_number`, `aircraft_model` (ID), `wing` (Part ID), `fuselage` (Part ID), `tail` (Part ID), `avionics` (Part ID).
