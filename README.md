@@ -1,6 +1,3 @@
-Elbette! Projenizin son haline ve konuştuğumuz tüm detaylara göre kapsamlı bir `README.md` dökümantasyonu oluşturalım. Bu dökümantasyon, projeyi yeni alan birinin veya gelecekte sizin kolayca anlayıp çalıştırabilmesi için gerekli tüm bilgileri içerecektir.
-
----
 
 # Hava Aracı Üretim Uygulaması API - Proje Dökümantasyonu
 
