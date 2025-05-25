@@ -68,7 +68,6 @@ Projenin temel amacı, karmaşık bir üretim sürecini modelleyerek, aşağıda
     *   react-router-dom: Sayfa yönlendirmeleri için.
     *   axios: API istekleri için.
     *   react-data-table-component: Veri tabloları için (server-side data destekli).
-    *   (jQuery ve DataTables.net, eğer `datatables.net-react` yerine doğrudan jQuery tabanlı DataTables kullanıldıysa)
 
 ## 3. Proje Yapısı
 
